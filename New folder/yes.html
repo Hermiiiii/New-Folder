@@ -1,0 +1,83 @@
+<html>
+    <head>
+        <title>Yay! 💖</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+            body {
+                background-color: #ffebf6;
+                text-align: center;
+                font-family: 'Pacifico', cursive;
+            }
+
+            h1 {
+                color: #ff4081;
+                font-size: 3em;
+            }
+
+            p {
+                color: #d6336c;
+                font-size: 1.5em;
+            }
+
+            .gif-container {
+                text-align: center;
+                margin-top: 20px;
+            }
+
+            .gif-container img {
+                width: 250px;
+                height: auto;
+                border-radius: 10px;
+                box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            }
+
+            /* Hearts Animation */
+            .heart {
+                position: absolute;
+                color: red;
+                font-size: 2em;
+                animation: floatUp 1s linear infinite;
+            }
+
+            @keyframes floatUp {
+                0% {
+                    transform: translateY(0);
+                    opacity: 1;
+                }
+                100% {
+                    transform: translateY(-50px);
+                    opacity: 0;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Yay! You said YES! 💖</h1>
+        <p>I love you so much! 🥰💞</p>
+
+        <!-- Cute Celebration GIF -->
+        <div class="gif-container">
+            <img src="heartcat.gif" alt="heartcat gif">
+        </div>
+
+        <script>
+            function createHearts() {
+                for (let i = 0; i < 15; i++) {
+                    let heart = document.createElement("div");
+                    heart.innerHTML = "❤️";
+                    heart.classList.add("heart");
+                    heart.style.left = Math.random() * window.innerWidth + "px";
+                    heart.style.top = Math.random() * window.innerHeight + "px";
+                    document.body.appendChild(heart);
+
+                    setTimeout(() => {
+                        heart.remove();
+                    }, 1000);
+                }
+            }
+
+            setInterval(createHearts, 500);
+        </script>
+    </body>
+</html>
